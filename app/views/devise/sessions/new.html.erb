@@ -1,0 +1,36 @@
+
+<div class="mt-2">
+<h1><%= t('.sign_in') %></h1>
+
+<div class="row">
+  <div class="col-9">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <b><%= f.label :email %></b>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control mt-1' %>
+      </div>
+      <br>
+      <div class="form-group">
+        <b><%= f.label :password %></b>
+        <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control mt-1' %>
+      </div>
+      <br>
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group form-check">
+          <%= f.check_box :remember_me, class: 'form-check-input' %>
+          <%= f.label :remember_me, class: 'form-check-label' do %>
+            <%= resource.class.human_attribute_name('remember_me') %>
+          <% end %>
+        </div>
+      <% end %>
+      <br>
+      <div class="form-group">
+        <%= f.submit  "Login", class: 'btn btn-primary btn-lg' %>
+      </div>
+    <% end %>
+  
+  </div>
+</div>
+</div>
+<br>
+<%= render 'devise/shared/links' %>
