@@ -1,0 +1,8 @@
+<% if @stock %>
+    <div class="card card-header mt-3" style="display:inline-block">
+        <strong> Symbol: </strong><%=@stock.ticker%>
+        <strong> Name: </strong><%=@stock.name%>
+        <strong> Last Price: </strong><%=@stock.last_price%>
+        <%= button_to 'Add to portfolio', user_stocks_path(user:current_user, ticker:@stock.ticker), class:'btn btn-success', method: :post %>
+    </div>
+<%end%>
